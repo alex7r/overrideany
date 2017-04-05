@@ -24,12 +24,14 @@ class PlgSystemOverrideAny extends JPlugin
         $overridables['ContentModelCategory']['target']  = JPATH_BASE
             . '/core/content/models/category.php';
         foreach ($overridables as $class => $files) {
-            $files['initial'] = str_replace($class, $class . 'Base',
-                file_get_contents($files['initial']));
-            $files['initial'] = preg_replace('/^\\<\\?php[^A-z]/', '',
-                $files['initial']);
-            eval($files['initial']);
-            JLoader::register($class, $files['target']);
+            if (!class_exists($class . 'Base', false)) {
+                $files['initial'] = str_replace($class, $class . 'Base',
+                    file_get_contents($files['initial']));
+                $files['initial'] = preg_replace('/^\\<\\?php[^A-z]/', '',
+                    $files['initial']);
+                eval($files['initial']);
+                JLoader::register($class, $files['target']);
+            }
         }
     }
 }
