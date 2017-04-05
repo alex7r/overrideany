@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.x" type="plugin" group="system" method="upgrade">
+	<name>plg_system_overrideany</name>
+	<author>Alexandr Kosarev</author>
+	<creationDate>April 2017</creationDate>
+	<copyright>Copyright (C) 2017 Alexandr Kosarev @kosarev.by</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>alexandr@kosarev.by</authorEmail>
+	<authorUrl>www.kosarev.by</authorUrl>
+	<version>1.0.0</version>
+	<description>Override anything you want!</description>
+	<files>
+		<filename plugin="overrideany">overrideany.php</filename>
+	</files>
+</extension>
